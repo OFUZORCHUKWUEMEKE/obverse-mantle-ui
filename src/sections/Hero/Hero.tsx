@@ -33,9 +33,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <img className="absolute lg:flex hidden bottom-[0%] left-1/2 -translate-x-[30%] w-[590px] h-[680px] max-xl:w-[550px]" src={handPhone} alt="Holding Phone"/>
-                <img className="absolute bottom-0 right-0 w-[305px] max-pro:w-[280px] h-[434px] max-pro:h-[380px] lg:hidden flex" src={handePhoneSm} alt="Holding Phone Mobile"/>
+                <img className="absolute bottom-0 right-0 w-[305px] max-pro:w-[280px] h-[434px] max-pro:h-[380px] sm:hidden flex" src={handePhoneSm} alt="Holding Phone Mobile"/>
             </div>
-
+        
         </section>
     )
 }

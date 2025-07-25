@@ -37,9 +37,9 @@ export default {
           card: "#FADDD5",
         },
         primary: "#ECEEFF",
-        "coral-red": "#FF6452",
-        "slate-gray": "#6D6D6D",
-        "pale-blue": "#F5F6FF",
+        "coral-red": "#FFa28a",
+        "slate-gray": "#525866",
+        "pale-brown": "#2E1109",
         "white-400": "rgba(255, 255, 255, 0.80)",
       },
       boxShadow: {
@@ -48,6 +48,13 @@ export default {
       screens: {
         pro: "391px",
         se: "376px",
+      },
+        letterSpacing: {
+        text: '-0.04em', // your default tracking
+      },
+      lineHeight: {
+        text: '1',       // default mobile line height
+        'text-sm': '0.9' // larger screen line height
       },
     },
   },
