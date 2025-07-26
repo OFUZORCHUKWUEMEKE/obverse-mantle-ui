@@ -40,6 +40,7 @@ export default {
         "coral-red": "#FFa28a",
         "slate-gray": "#525866",
         "pale-brown": "#2E1109",
+        "brown": "#9A391f",
         "white-400": "rgba(255, 255, 255, 0.80)",
       },
       boxShadow: {
@@ -48,6 +49,7 @@ export default {
       screens: {
         pro: "391px",
         se: "376px",
+        s8: "362px",
       },
         letterSpacing: {
         text: '-0.04em', // your default tracking

@@ -7,22 +7,29 @@ export interface DataItem {
 const data: DataItem[] = [
   {
     id: "1",
-    question: "Office Cleaning Experts",
+    question: "Freelancers & Creators",
     answer:
-      "Trusted professionals ensuring a pristine workspace, boosting productivity with every clean. Satisfaction guaranteed.",
+      "Receive payments from global clients instantly. No delays, no middlemen just borderless, direct crypto payouts.",
   },
   {
     id: "2",
-    question: "Eco-Friendly Cleaning",
+    question: "Brick-and-Mortar Merchants",
     answer:
       "Green cleaning solutions that are safe for your space and the planet. Great results.",
   },
   {
     id: "3",
-    question: "Deep Cleaning Specialists",
+    question: "SaaS & Digital Businesses",
     answer:
       "Transforming spaces with meticulous deep cleaning, leaving no corner untouched. Perfectly transformed every time.",
   },
+  {
+    id: "4",
+    question: "DAOs & GameFi Projects",
+    answer:
+      "Transforming spaces with meticulous deep cleaning, leaving no corner untouched. Perfectly transformed every time.",
+  },
+
 ];
 
 export default data;

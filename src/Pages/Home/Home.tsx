@@ -3,6 +3,7 @@ import Hero from '../../sections/Hero/Hero'
 import Herotext from '../../sections/Hero/Herotext'
 import SendScanDone from '../../sections/SendScanDone/SendScanDone'
 import BuiltFor from '../../sections/BuiltFor/BuiltFor'
+import WhatMakes from '../../sections/WhatMakes/WhatMakes'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Herotext />
       <SendScanDone />
       <BuiltFor />
+      <WhatMakes />
     </section>
   )
 }
