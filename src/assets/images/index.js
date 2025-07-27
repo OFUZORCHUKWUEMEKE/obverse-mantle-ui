@@ -14,6 +14,11 @@ import faceCoin from "./ChatGPT Image Jul 20, 2025, 02_08_12 AM 1.png"
 import Stack from "./ChatGPT Image Jul 20, 2025, 02_13_53 AM 1.png"
 import Ligthening from "./ChatGPT Image Jul 20, 2025, 02_08_09 AM 1.png"
 
+import Payment1 from "./Scene 7 (1).png"
+import Get1 from "./Scene 7 (2).png"
+
+import obverse from "./Frame 2147225576.png"
+
 export {
 rImg,
 lImg,
@@ -31,5 +36,8 @@ faceCoin,
 Stack,
 Ligthening,
 
+Payment1,
+Get1,
 
+obverse
 }

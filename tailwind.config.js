@@ -11,10 +11,10 @@ export default {
       lg: ["18px", "21.94px"],
       xl: ["20px", "24.38px"],
       "2xl": ["24px", "29.26px"],
-      "3xl": ["28px", "50px"],
+      "3xl": ["38px", "50px"],
       "3_5xl": ["45px", "55px"],
       "4xl": ["48px", "58px"],
-      "5xl": ["60px", "58px"],
+      "5xl": ["65px", "58px"],
       "8xl": ["96px", "106px"],
     },
     extend: {
@@ -48,8 +48,11 @@ export default {
       },
       screens: {
         pro: "391px",
+        1024: "1024px",
         se: "376px",
+        iPadAir: "821px",
         s8: "362px",
+        s20: "412px",
       },
         letterSpacing: {
         text: '-0.04em', // your default tracking

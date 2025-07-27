@@ -6,6 +6,8 @@ import Receive from "./money-dollar-box-fill (1).jpg"
 import Track from "./stack-fill.jpg"
 import arrowDown from "./Vector.svg"
 import arrowUp from "./Vector (1).svg"
+import teleGram from "./telegram-fill.svg"
+import Twitter from "./Vector (2).svg"
 
 export { 
     logo, 
@@ -17,5 +19,8 @@ export {
     Track,
 
     arrowDown,
-    arrowUp
+    arrowUp,
+
+    teleGram,
+    Twitter
 };

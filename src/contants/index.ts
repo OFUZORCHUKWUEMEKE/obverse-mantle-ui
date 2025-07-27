@@ -1,6 +1,6 @@
 import React from "react"
 import { Get, Receive, Track, Type } from "../assets/icons"
-import { BuyandSell, faceCoin, Ligthening, QRCode, Stack } from "../assets/images"
+import { BuyandSell, faceCoin, Ligthening, QRCode, Stack, Payment1, Get1, } from "../assets/images"
 
 export interface NavLink {
   label: string
@@ -12,10 +12,11 @@ export interface SSDItems {
   icon: string
   text: string
   deg: number
+  className?: string
 
 }
 
-export interface WhatMakes1 {
+export interface Normal {
    label: string
   icon: string
   text: string
@@ -36,17 +37,18 @@ export const SSD: SSDItems[] = [
     { label: "Track", icon: Track, text: "Once your customer completes the payment, the funds are delivered directly to your non-custodial wallet, like Phantom on Solana.", deg: -3 },
 ]
 
-export const WhatMakes1: WhatMakes1[] = [
+export const WhatMakes1: Normal[] = [
     { label: "Buy & Sell Instantly", text: "Trade assets with ease. Whether it’s tokens, , or digital goods, buying and selling is seamless and lightning-fast.", icon: BuyandSell },
     { label: "Scan & Go with QR Code", text: "Send and receive funds or access features instantly with smart QR code integration—no long addresses, just tap and go.", icon: QRCode },
 ]
-export const WhatMakes2: WhatMakes1[] = [
+export const WhatMakes2: Normal[] = [
     { label: "Crowd Fund with Your Community", text: "Launch, manage, or support crowdfunding campaigns with full transparency and smart contract protection.", icon: faceCoin },
     { label: "Track Everything in Real-Time", text: "Keep an eye on your portfolio, transactions, and campaigns with live updates and clean dashboards.", icon: Ligthening },
     { label: "Seamless Integration", text: "Plug-and-play for websites, SaaS platforms, or social storefronts", icon: Stack },
 ]
 
-export const PaymentApp: WhatMakes1[] = [
-    { label: "", text: "", icon: ""},
-    { label: "", text: "", icon: ""}
+export const PaymentAppItesm: Normal[] = [
+    { label: "A Payment App Built for the Platforms You Already Use", text: "Obverse doesn’t require customers to understand blockchain. It wraps powerful DeFi tools in a friendly social interface that works on", icon: Payment1  },
+    { label: "A Payment App Built for the Platforms You Already Use", text: "Obverse doesn’t require customers to understand blockchain. It wraps powerful DeFi tools in a friendly social interface that works on", icon: Get1  },
+   
 ]
