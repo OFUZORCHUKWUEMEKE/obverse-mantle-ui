@@ -9,12 +9,12 @@ const SendScanDone = () => {
         <h1 className='sm:text-[72px] text-[36px] tracking-text font-calsans text-[#2e1109]'>Send. Scan. Done.</h1>
         <p className='info-text text-[#742B17]'>Obverse turns your Telegram into a powerful payment tool. No apps. No wallets to build. Just one command.</p>
       </div>
-      <div className="grid sm:grid-cols-4 grid-cols-1 w-full xl:gap-5 sm:gap-72 gap-6 mt-7 overflow-visible">
+      <div className="grid s20:grid-cols-4 grid-cols-1 w-full xl:gap-5 s20:gap-72 gap-6 mt-7 overflow-visible">
         {SSD.map((item, index) => (
           <SSDCard
             key={item.label}
             {...item}
-            className={`${index === SSD.length - 1 ? "sm:-mr-5" : ""} ${index === 0 ? "sm:-ml-5" : ""
+            className={`${index === SSD.length - 1 ? "s20:-mr-5" : ""} ${index === 0 ? "s20:-ml-5" : ""
               }`}
           />
         ))}

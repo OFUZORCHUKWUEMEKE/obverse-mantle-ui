@@ -13,7 +13,7 @@ const BuiltFor = () => {
     const dataElement = data.map((dataItem) => (
         <div
             key={dataItem.id}
-            className="flex flex-col relative w-full max-w-[350px] sm:max-w-[350px] md:max-w-[550px] lg:max-w-[450px] max-lg:justify-center"
+            className="flex flex-col relative w-full max-w-[350px] max-md:max-w-[550px] md:max-w-[550px] lg:max-w-[450px] max-lg:justify-center"
         >
             <h3
                 className={`${selection === dataItem.id
@@ -56,9 +56,9 @@ const BuiltFor = () => {
                         Built for Real-World <br /> Use Cases
                     </h1>
 
-                    <div className="sm:flex hidden flex-col w-full flex-1 gap-5 items-center lg:items-start">{dataElement}</div>
+                    <div className="s20:flex hidden flex-col w-full flex-1 gap-5 items-center lg:items-start">{dataElement}</div>
 
-                    <div className="flex sm:hidden flex-col gap-4">
+                    <div className="flex s20:hidden flex-col gap-4">
                         <div className="bg-[#9A391F] text-[#F3aa96] p-5 rounded-[6px_24px_24px_24px] w-fit font-figtree">
                             Brick-and-Mortar Merchants
                         </div>

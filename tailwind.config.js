@@ -49,10 +49,11 @@ export default {
       screens: {
         pro: "391px",
         1024: "1024px",
+        640: "640px",
         se: "376px",
         iPadAir: "821px",
         s8: "362px",
-        s20: "412px",
+        s20: "420px",
       },
         letterSpacing: {
         text: '-0.04em', // your default tracking

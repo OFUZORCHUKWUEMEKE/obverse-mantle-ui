@@ -6,7 +6,7 @@ import { bitcoinImg, lImg, rImg, usdImg } from '../../assets/images'
 const ReadyToAccept = () => {
   return (
    <section className='flex bg-background-main w-full padding-x padding-y justify-center items-center max-container'>
-            <div className='w-full overflow-hidden relative flex items-center justify-center flex-col bg-background-sub max-w-screen-xl mx-auto xl:min-h-[80vh] max-xl:min-h-[75vh] max-se:min-h-[85vh] rounded-2xl px-7 sm:mb-24 mb-20'>
+            <div className='w-full overflow-hidden relative flex items-center justify-center flex-col bg-background-sub max-w-screen-xl mx-auto xl:min-h-[80vh] max-xl:min-h-[75vh] max-640:min-h-[70vh] max-s20:min-h-[90vh] max-se:min-h-[85vh] rounded-2xl px-7 sm:mb-24 mb-20'>
                 <div className="flex items-center flex-col sm:gap-7 gap-4 w-full max-xl:mt-14 max-lg:mt-0">
                     <h1 className='sm:text-[72px] text-[40px] text-white leading-[1] md:leading-[0.9] tracking-[-0.04em] md:tracking-[-0.04em] font-calsans text-center'>
                         Ready to Accept <br className="sm:flex hidden" /> That <br className="sm:hidden flex" />Stablecoin Payments?

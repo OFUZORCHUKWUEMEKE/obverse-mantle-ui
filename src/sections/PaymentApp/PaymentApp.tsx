@@ -13,8 +13,8 @@ const PaymentApp = () => {
             >
 
               <div className="flex flex-col flex-1 gap-5 lg:w-1/2">
-                <h2 className="xl:text-[66px] lg:text-[50px] leading-text text-[34px] text-pale-brown tracking-text font-calsans">{item.label}</h2>
-                <p className="sm:text-[16px] text-[13px] md:max-w-lg font-figtree text-[#742b17]">{item.text}</p>
+                <h2 className="xl:text-[66px] lg:text-[50px] leading-text text-[34px] text-pale-brown tracking-text font-calsans max-sm:text-center">{item.label}</h2>
+                <p className="sm:text-[16px] text-[13px] md:max-w-lg font-figtree text-[#742b17] max-sm:text-center">{item.text}</p>
               </div>
               <img
                 src={item.icon} alt={item.label} className="lg:w-1/2 md:w-[500px] w-full object-contain object-center "
