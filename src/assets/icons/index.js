@@ -8,6 +8,8 @@ import arrowDown from "./Vector.svg"
 import arrowUp from "./Vector (1).svg"
 import teleGram from "./telegram-fill.svg"
 import Twitter from "./Vector (2).svg"
+import walletIcon from "./Frame 427319284.svg"
+import walletIconDark from "./Frame 427319284 (1).svg"
 
 export { 
     logo, 
@@ -22,5 +24,8 @@ export {
     arrowUp,
 
     teleGram,
-    Twitter
+    Twitter,
+
+    walletIcon,
+    walletIconDark
 };

@@ -3,6 +3,9 @@ import colors from "tailwindcss/colors";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+
+  darkMode: "class", 
+
   theme: {
     fontSize: {
       xs: ["12px", "16px"],
@@ -35,6 +38,8 @@ export default {
           main: "#FFEDE8",
           sub: "#E7562E",
           card: "#FADDD5",
+          payment: "#E25E00",
+          paymentDark: "#140800",
         },
         primary: "#ECEEFF",
         "coral-red": "#FFa28a",

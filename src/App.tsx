@@ -1,40 +1,39 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Error from "./Pages/Error/Error";
 import Footer from "./Components/Footer/Footer";
+import Wallet from "./Pages/Wallet/Wallet";
 
-const App = () => {
+const AppRoutes = () => {
+  const location = useLocation();
+  const hideNavbar = ["/wallet"];
+  const shouldHide = hideNavbar.includes(location.pathname);
+
   return (
+    <>
+      
+      {!shouldHide && <Navbar />}
 
-        <BrowserRouter>
-            {/* navbar  */}
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="about" element={<About />} />
-                {/* not found routes  */}
-                <Route path="*" element={<Error/> } />
-            </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="wallet" element={<Wallet />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
 
-            {/* footer component  */}
-            <Footer />
+      {/* Footer */}
+      {!shouldHide && <Footer />}
+      
+    </>
+  );
+};
 
-        </BrowserRouter>
-
-    );
-  // return (
-  //   <>
-  //     <h1 className="text-3xl text-center font-bold font-calsans">
-  //       Hello world!
-  //     </h1>
-  //     <h1 className="text-3xl text-center font-bold font-figtree">
-  //       Hello world!
-  //     </h1>
-  //   </>
-  // );
-}
-
+const App = () => (
+  <BrowserRouter>
+    <AppRoutes />
+  </BrowserRouter>
+);
 
 export default App;

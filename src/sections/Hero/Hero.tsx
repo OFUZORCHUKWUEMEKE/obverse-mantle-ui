@@ -32,7 +32,7 @@ const Hero = () => {
                         
                     </div>
                 </div>
-                <img className="absolute s20:flex hidden bottom-[0%] left-1/2 -translate-x-[30%] w-[590px] h-[680px] max-iPadAir:w-[480px] max-xl:w-[550px]" src={handPhone} alt="Holding Phone"/>
+                <img className="absolute s20:flex hidden bottom-[0%] left-1/2 -translate-x-[30%] w-[590px] h-[680px] max-iPadAir:w-[480px] max-xl:w-[550px] max-sm:w-[500px] max-sm:h-[600px]" src={handPhone} alt="Holding Phone"/>
                 <img className="absolute bottom-0 right-0 max-se:-right-4 w-[305px] max-pro:w-[280px] h-[434px] max-pro:h-[380px] s20:hidden flex" src={handePhoneSm} alt="Holding Phone Mobile"/>
             </div>
         </section>
