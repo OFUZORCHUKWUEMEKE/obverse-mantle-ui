@@ -1,5 +1,5 @@
 import React from "react";
-import { Get, Receive, Track, Type } from "../assets/icons";
+import { Get, Receive, Track, Type, avatarIcon } from "../assets/icons";
 import {
   BuyandSell,
   faceCoin,
@@ -41,6 +41,14 @@ export interface topTItems {
   id: number;
   label: string;
 }
+export interface testimonialsItems {
+  text: string;
+  name: string;
+  avatar: string;
+}
+
+
+
 
 export const navLinks: NavLink[] = [
   { label: "Home", link: "" },
@@ -170,3 +178,34 @@ export const topT2: topTItems[] = [
   { id: 4, label: "Description" },
   { id: 5, label: "Liquidity" },
 ];
+
+
+
+
+export const testimonials: testimonialsItems[] = [
+        {
+            text: "I started with just one bundle of DeCharge Mini, mostly out of curiosity. We installed them near a college campus where there’s always EV traffic.",
+            name: "Cornel Isakiss",
+            avatar: avatarIcon
+        },
+        {
+            text: "It’s an amazing experience with reliable EV charging support everywhere.",
+            name: "Cornel Isakiss",
+            avatar: avatarIcon,
+        },
+        {
+            text: "Our sales increased by 40% after installing DeCharge stations.",
+            name: "Cornel Isakiss",
+            avatar: avatarIcon,
+        },
+        {
+            text: "The best EV charging solution we’ve ever tried!",
+            name: "Cornel Isakiss",
+            avatar: avatarIcon,
+        },
+        {
+            text: "Compact, reliable, and easy to use. Perfect for city locations.",
+            name: "Cornel Isakiss",
+            avatar: avatarIcon,
+        },
+    ];

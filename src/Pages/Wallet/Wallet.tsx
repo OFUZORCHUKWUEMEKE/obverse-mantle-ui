@@ -66,7 +66,7 @@ const Wallet = () => {
 
       {/* Transactions Table */}
       <div className="p-6 overflow-x-auto bg-[#F5F7FA] dark:bg-[#191B1F] rounded-[15px] dark:rounded-[20px]">
-        {/* Head */}
+       
         <div className="flex max-md:flex-col-reverse gap-5 w-full justify-between items-center">
           <div className="grid justify-center items-center sm:w-1/2 w-full grid-cols-4 bg-white shadow-md dark:bg-black rounded-[10px]">
             {topT.map((item) => (

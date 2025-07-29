@@ -6,8 +6,8 @@ import { bitcoinImg, handePhoneSm, handPhone, lImg, rImg, usdImg } from "../../a
 const Hero = () => {
     return (
         <section className='flex bg-background-main w-full padding-x padding-y justify-center items-center max-container'>
-            <div className='w-full relative flex flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-[100vh] min-h-[90vh] max-640:min-h-[75vh] max-s20:min-h-[90vh] max-s8:min-h-[108vh] max-se:min-h-[120vh] rounded-2xl px-7 sm:pt-14 pt-10 overflow-hidden'>
-                <div className="flex items-center flex-col sm:gap-7 gap-4 w-full max-xl:mt-14 max-lg:mt-0">
+            <div className='w-full relative flex flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-[100vh] min-h-[90vh] max-640:min-h-[75vh] 980:min-h-[70vh] 412:min-h-[75vh]  max-s20:min-h-[95vh] max-s8:min-h-[108vh] max-se:min-h-[120vh] rounded-2xl px-7 sm:pt-14 pt-10 overflow-hidden'>
+                <div className="flex items-center flex-col sm:gap-7 gap-2 w-full max-xl:mt-14 max-lg:mt-0">
                     <h1 className='sm:text-5xl text-3xl  text-white leading-[1] md:leading-[0.9] tracking-[-0.04em] md:tracking-[-0.04em] font-calsans text-center'>
                         Stablecoin Payments<br className="sm:flex hidden" /> That <br className="sm:hidden flex" /> feel Like Chat
                     </h1>
@@ -33,7 +33,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <img className="absolute s20:flex hidden bottom-[0%] left-1/2 -translate-x-[30%] w-[590px] h-[680px] max-iPadAir:w-[480px] max-xl:w-[550px] max-sm:w-[500px] max-sm:h-[600px]" src={handPhone} alt="Holding Phone"/>
-                <img className="absolute bottom-0 right-0 max-se:-right-4 w-[305px] max-pro:w-[280px] h-[434px] max-pro:h-[380px] s20:hidden flex" src={handePhoneSm} alt="Holding Phone Mobile"/>
+                <img className="absolute -bottom-12 -right-5 max-se:-right-4 w-[305px] max-pro:w-[280px] h-[434px] max-pro:h-[380px] s20:hidden flex max-sm:h-[370px] max-sm:w-[300px]" src={handePhoneSm} alt="Holding Phone Mobile"/>
             </div>
         </section>
     )

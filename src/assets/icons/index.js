@@ -10,6 +10,7 @@ import teleGram from "./telegram-fill.svg"
 import Twitter from "./Vector (2).svg"
 import walletIcon from "./Frame 427319284.svg"
 import walletIconDark from "./Frame 427319284 (1).svg"
+import avatarIcon from "./AvatarIcon.svg"
 
 export { 
     logo, 
@@ -27,5 +28,6 @@ export {
     Twitter,
 
     walletIcon,
-    walletIconDark
+    walletIconDark,
+     avatarIcon
 };

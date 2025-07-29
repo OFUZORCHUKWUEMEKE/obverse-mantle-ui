@@ -6,6 +6,7 @@ import BuiltFor from '../../sections/BuiltFor/BuiltFor'
 import WhatMakes from '../../sections/WhatMakes/WhatMakes'
 import PaymentApp from '../../sections/PaymentApp/PaymentApp'
 import ReadyToAccept from '../../sections/ReadyToAccept/ReadyToAccept'
+import Testimonials from '../../sections/Testimonials/Testimonials'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <BuiltFor />
       <WhatMakes />
       <PaymentApp />
+      <Testimonials />
       <ReadyToAccept />
     </section>
   )

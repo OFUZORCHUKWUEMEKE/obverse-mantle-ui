@@ -19,6 +19,9 @@ import Get1 from "./Scene 7 (2).png"
 
 import obverse from "./Frame 2147225576.png"
 
+import paymentDarkBg from "./paymentDark.png"
+import paymentLightBg from "./paymentLight.png"
+
 export {
 rImg,
 lImg,
@@ -39,5 +42,8 @@ Ligthening,
 Payment1,
 Get1,
 
-obverse
+obverse,
+
+paymentLightBg,
+paymentDarkBg
 }

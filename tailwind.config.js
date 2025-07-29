@@ -59,6 +59,8 @@ export default {
         iPadAir: "821px",
         s8: "362px",
         s20: "420px",
+        412: "412px",
+        980: "980px",
       },
         letterSpacing: {
         text: '-0.04em', // your default tracking
