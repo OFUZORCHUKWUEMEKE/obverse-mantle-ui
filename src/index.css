@@ -29,7 +29,7 @@
   }
 
   .padding-x {
-    @apply sm:px-5 s20:px-10 px-6;
+    @apply sm:px-5 px-4;
   }
 
   .padding-y {

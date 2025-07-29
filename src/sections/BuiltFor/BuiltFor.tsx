@@ -48,7 +48,7 @@ const BuiltFor = () => {
     ));
 
     return (
-        <section className="flex justify-center max-container w-full bg-background-main px-6 py-8">
+        <section className="flex justify-center max-container w-full bg-background-main padding-x py-8">
             <div className="flex max-lg:flex-col justify-center items-start gap-10 px-6 py-10 bg-background-sub rounded-[40px] lg:max-h-[650px] w-full">
 
                 <div className="lg:w-1/2 w-full flex flex-col flex-1 gap-7 max-lg:justify-center">
