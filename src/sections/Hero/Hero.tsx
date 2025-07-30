@@ -34,7 +34,7 @@ const handMotion: Variants = {
 const Hero = () => {
     return (
         <section className="flex bg-background-main w-full padding-x padding-y justify-center items-center max-container">
-            <div className="w-full relative flex flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-screen md:min-h-[70vh] sm:min-h-[70vh] max-420:min-h-[100vh]  min-h-[80vh] max-se:min-h-[100vh] max-s8:min-h-[93vh] rounded-2xl px-7 sm:pt-14 pt-10 overflow-hidden">
+            <div className="w-full relative flex flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-screen md:min-h-[70vh] sm:min-h-[70vh] max-412:min-h-[97vh]  min-h-[80vh] max-se:min-h-[100vh] max-s8:min-h-[93vh] rounded-2xl px-7 sm:pt-14 pt-10 overflow-hidden">
 
                 {/* Text Content */}
                 <motion.div
