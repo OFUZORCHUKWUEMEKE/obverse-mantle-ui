@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
         </ul>
 
 
-        <button className="lg:hidden text-2xl text-gray-600" onClick={() => setMenuOpen(true)}>
+        <button className="lg:hidden text-[30px] font-bold text-gray-600" onClick={() => setMenuOpen(true)}>
           <MenuIcon />
         </button>
 
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
           className={`fixed top-0 left-0 h-full w-2/3 bg-white shadow-md z-50 transform ${menuOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out`}
         >
-          <button className="absolute top-5 right-5 text-2xl text-gray-600" onClick={closeMenu}>
+          <button className="absolute top-5 right-5 text-[30px] text-gray-600" onClick={closeMenu}>
            <XIcon />
           </button>
           {/* Mobile Nav */}

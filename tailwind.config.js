@@ -60,7 +60,7 @@ export default {
         s8: "362px",
         s20: "420px",
         412: "412px",
-        980: "980px",
+        980: "978px",
       },
         letterSpacing: {
         text: '-0.04em', // your default tracking

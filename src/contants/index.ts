@@ -21,12 +21,14 @@ export interface SSDItems {
   text: string;
   deg: number;
   className?: string;
+  id: number
 }
 
 export interface Normal {
   label: string;
   icon: string;
   text: string;
+  id?: number
 }
 
 export interface Transaction {
@@ -62,24 +64,29 @@ export const SSD: SSDItems[] = [
     icon: Type,
     text: "Open your Telegram and send a simple command to Obverse, like: generate $50 USDC payment link",
     deg: 3,
+    id: 1
+
   },
   {
     label: "Get",
     icon: Get,
     text: "Within seconds, you’ll receive a payment link and a QR code generated specifically for that request.",
     deg: 2,
+    id: 2
   },
   {
     label: "Receive",
     icon: Receive,
     text: "Once your customer completes the payment, the funds are delivered directly to your non-custodial wallet, like Phantom on Solana.",
     deg: -2,
+    id: 3
   },
   {
     label: "Track",
     icon: Track,
     text: "Once your customer completes the payment, the funds are delivered directly to your non-custodial wallet, like Phantom on Solana.",
     deg: -3,
+    id: 4
   },
 ];
 
@@ -88,11 +95,13 @@ export const WhatMakes1: Normal[] = [
     label: "Buy & Sell Instantly",
     text: "Trade assets with ease. Whether it’s tokens, , or digital goods, buying and selling is seamless and lightning-fast.",
     icon: BuyandSell,
+    id: 1
   },
   {
     label: "Scan & Go with QR Code",
     text: "Send and receive funds or access features instantly with smart QR code integration—no long addresses, just tap and go.",
     icon: QRCode,
+    id: 2
   },
 ];
 export const WhatMakes2: Normal[] = [
@@ -100,16 +109,19 @@ export const WhatMakes2: Normal[] = [
     label: "Crowd Fund with Your Community",
     text: "Launch, manage, or support crowdfunding campaigns with full transparency and smart contract protection.",
     icon: faceCoin,
+    id: 1
   },
   {
     label: "Track Everything in Real-Time",
     text: "Keep an eye on your portfolio, transactions, and campaigns with live updates and clean dashboards.",
     icon: Ligthening,
+    id: 2
   },
   {
     label: "Seamless Integration",
     text: "Plug-and-play for websites, SaaS platforms, or social storefronts",
     icon: Stack,
+    id: 3
   },
 ];
 
