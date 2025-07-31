@@ -36,7 +36,7 @@ const Hero = () => {
         <section className="flex bg-background-main w-full padding-x padding-y justify-center items-center max-container">
             <div className="w-full relative flex flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-screen md:min-h-[70vh] sm:min-h-[70vh] max-412:min-h-[97vh] max-414:min-h-[80vh] 430:min-h-[80vh]  min-h-[95vh] max-se:min-h-[100vh] max-s8:min-h-[93vh] max-pro:min-h-[85vh] rounded-2xl px-7 sm:pt-14 pt-10 overflow-hidden">
 
-                {/* Text Content */}
+                {/* TextContent */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -69,7 +69,7 @@ const Hero = () => {
                     </Link>
                 </motion.div>
 
-                {/* Side Coins (Static for now, can animate later if needed) */}
+                
                 <div className="w-full mx-auto md:flex hidden iPadAir:justify-between max-iPadAir:gap-52 flex-1 items-center px-10 max-xl:px-0 mb-32 max-iPadAir:mt-16">
                     <div className="flex flex-col space-y-24">
                         <img src={lImg} alt="left-coin" className="w-[269px] h-[182px]" />
@@ -93,7 +93,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Hand Images (With Animation) */}
+          
                 <motion.img
                     variants={handMotion}
                     initial="hidden"

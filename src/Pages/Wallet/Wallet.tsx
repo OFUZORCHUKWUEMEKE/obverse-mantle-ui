@@ -50,7 +50,7 @@ const Wallet = () => {
         </div>
       </header>
 
-      {/* Total Transactions */}
+ 
       <div className="flex flex-col justify-center items-center gap-10 dark:bg-background-paymentDark bg-background-payment text-white text-center py-20 rounded-[15px] mb-10">
         <button
           className="flex justify-center items-center "
@@ -64,7 +64,7 @@ const Wallet = () => {
 
       </div>
 
-      {/* Transactions Table */}
+     
       <div className="p-6 overflow-x-auto bg-[#F5F7FA] dark:bg-[#191B1F] rounded-[15px] dark:rounded-[20px]">
        
         <div className="flex max-md:flex-col-reverse gap-5 w-full justify-between items-center">
@@ -81,8 +81,6 @@ const Wallet = () => {
               <SearchIcon />
             </Button>
 
-
-            {/* Input */}
             <input
               type="text"
               placeholder="Search.."

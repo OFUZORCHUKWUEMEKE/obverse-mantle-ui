@@ -26,7 +26,6 @@ const Payment = () => {
             }}
             className="min-h-screen flex flex-col items-center   bg-cover bg-no-repeat bg-top  text-gray-800 px-4">
 
-            {/* Header  */}
             <header className="sm:px-20 px-2 flex justify-between py-6 items-center w-full">
                 <Link to="/">
                     <div className="flex gap-2">
@@ -48,7 +47,8 @@ const Payment = () => {
                 </div>
             </header>
 
-            {/* Card */}
+            
+            
             <div className="bg-white sm:mt-40 mt-16 dark:bg-[#0e121b] border border-[#E1E4EA] dark:border-[#2B303B] rounded-xl shadow-xl w-full max-w-[600px] p-6">
               
                 <div className="flex justify-between items-center mb-4 pb-7 border-b border-gray-300 dark:border-gray-700">

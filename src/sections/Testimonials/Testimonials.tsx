@@ -3,7 +3,7 @@ import { testimonials } from "../../contants";
 import { motion } from "framer-motion";
 
 const Testimonials = () => {
-  // Duplicate array
+  // Duplicatearray
   const cards = [...testimonials, ...testimonials];
 
   return (
@@ -21,7 +21,7 @@ const Testimonials = () => {
     
         <motion.div
           className="grid gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3"
-          animate={{ y: ["0%", "-50%"] }} // mov up half because 
+          animate={{ y: ["0%", "-50%"] }} 
           transition={{
             repeat: Infinity,
             duration: 20,

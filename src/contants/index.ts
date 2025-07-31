@@ -50,8 +50,6 @@ export interface testimonialsItems {
 }
 
 
-
-
 export const navLinks: NavLink[] = [
   { label: "Home", link: "" },
   { label: "Why us", link: "about" },

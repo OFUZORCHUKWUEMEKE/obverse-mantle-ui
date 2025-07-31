@@ -49,7 +49,8 @@ const Navbar: React.FC = () => {
           <button className="absolute top-5 right-5 text-[30px] text-gray-600" onClick={closeMenu}>
            <XIcon />
           </button>
-          {/* Mobile Nav */}
+          {/* MobileNav */}
+
           <ul className="flex flex-col items-start px-6 pt-20 space-y-6">
             {navLinks.map((item) => (
               <li key={item.label} className="w-full">
@@ -63,7 +64,9 @@ const Navbar: React.FC = () => {
               </li>
             ))}
           </ul>
-          {/* Mpbile Button */}
+
+          {/* MpbileButton */}
+
           <Button
             className="flex lg:hidden bg-background-sub text-white mt-10 ml-5"
             

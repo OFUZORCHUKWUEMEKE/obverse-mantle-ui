@@ -61,7 +61,7 @@ const PaymentApp = () => {
                 isReversed ? "md:flex-row-reverse flex-col" : "md:flex-row flex-col"
               } w-full`}
             >
-              {/* Text Content */}
+              {/* Textcontent */}
               <motion.div
                 variants={isReversed ? textRight(0.4) : textLeft(0.4)}
                 initial="hidden"
@@ -77,7 +77,7 @@ const PaymentApp = () => {
                 </p>
               </motion.div>
 
-              {/* Image */}
+           
               <motion.img
                 variants={isReversed ? imgRight : imgLeft}
                 initial="hidden"
