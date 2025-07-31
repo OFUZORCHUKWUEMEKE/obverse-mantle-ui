@@ -13,7 +13,7 @@ const AppRoutes = () => {
   const shouldHide = hideNavbar.includes(location.pathname);
 
   return (
-    <>
+    <main className="max-container">
       
       {!shouldHide && <Navbar />}
 
@@ -28,7 +28,7 @@ const AppRoutes = () => {
       {/* Footer */}
       {!shouldHide && <Footer />}
       
-    </>
+    </main>
   );
 };
 

@@ -18,25 +18,26 @@ const ReadyToAccept = () => {
     };
     return (
         <section className='flex bg-background-main w-full padding-x padding-y justify-center items-center max-container'>
-            <div className='w-full overflow-hidden relative flex items-center justify-center flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-screen md:min-h-[70vh] sm:min-h-[70vh] max-412:min-h-[100vh] min-h-[80vh] max-se:min-h-[100vh] max-s8:min-h-[93vh] rounded-2xl px-7 sm:mb-24 mb-20'>
+            <div className='w-full overflow-hidden relative flex items-center justify-center flex-col bg-background-sub max-w-screen-xl mx-auto lg:min-h-screen md:min-h-[70vh] sm:min-h-[70vh] max-412:min-h-[95vh] min-h-[80vh] max-se:min-h-[100vh] max-s8:min-h-[93vh] rounded-2xl px-7 sm:mb-24 mb-20'>
                 <motion.div
                     initial="hidden"
-                    animate="visible"
+                    whileInView="visible"
+                    viewport={{ once: true }}
                     className="flex items-center flex-col sm:gap-7 gap-4 w-full max-xl:mt-14 max-lg:mt-0">
                     <motion.h1
-                        custom={0.2}
+                        custom={0.3}
                         variants={fadeIn}
                         className='sm:text-[72px] text-[40px] text-white leading-[1] md:leading-[0.9] tracking-[-0.04em] md:tracking-[-0.04em] font-calsans text-center'>
                         Ready to Accept <br className="sm:flex hidden" /> That <br className="sm:hidden flex" />Stablecoin Payments?
                     </motion.h1>
                     <motion.p
-                        custom={0.4}
+                        custom={0.6}
                         variants={fadeIn}
                         className='info-text text-white'>
                         Obverse is a Telegram-based AI Agent that lets you send and receive stablecoin payments with a simple message. No friction. No fees. No crypto confusion.
                     </motion.p>
                     <Link to="/" className="mt-10">
-                        <motion.div custom={0.6} variants={fadeIn}>
+                        <motion.div custom={0.9} variants={fadeIn}>
                             <Button variant="normal" size="normal">
                                 Get started
                             </Button>

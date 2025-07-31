@@ -7,7 +7,7 @@ const Testimonials = () => {
   const cards = [...testimonials, ...testimonials];
 
   return (
-    <section className="relative flex flex-col items-center justify-center mb-10 w-full bg-[#c04826] padding-x py-14">
+    <section className="relative flex flex-col items-center justify-center w-full bg-[#c04826] padding-x py-14">
       <h2 className="text-background-card sm:text-[65px] text-[40px] leading-text tracking-text font-calsans mb-10">
         Testimonials
       </h2>

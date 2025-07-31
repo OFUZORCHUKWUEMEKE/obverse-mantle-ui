@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const WhatMakes = () => {
     return (
-        <section className='flex flex-col justify-center items-center gap-5 padding-t padding-x padding-y padding-b w-full max-container bg-background-main'>
+        <section className='flex flex-col justify-center items-center gap-5 padding-t padding-x padding-y padding-b w-full max-container bg-background-main overflow-x-hidden'>
             <div className='flex items-center'>
                 <motion.h1
                     initial={{ opacity: 0 }}

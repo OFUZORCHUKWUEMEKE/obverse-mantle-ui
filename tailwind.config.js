@@ -59,15 +59,17 @@ export default {
         iPadAir: "821px",
         s8: "362px",
         s20: "420px",
+        430: "430px",
+        414: "415px",
         412: "412px",
         980: "978px",
       },
         letterSpacing: {
-        text: '-0.04em', // your default tracking
+        text: '-0.04em',
       },
       lineHeight: {
-        text: '1',       // default mobile line height
-        'text-sm': '0.9' // larger screen line height
+        text: '1',       
+        'text-sm': '0.9' 
       },
     },
   },
