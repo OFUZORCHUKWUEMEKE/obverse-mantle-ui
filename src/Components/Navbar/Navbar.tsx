@@ -3,7 +3,7 @@ import { Link } from "react-router"
 import { navLinks } from "../../contants"
 import { logo, logoText } from "../../assets/icons"
 import { Button } from "../Button/Button"
-import { FiMenu, FiX } from "react-icons/fi"; 
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -11,9 +11,9 @@ const Navbar: React.FC = () => {
 
   const MenuIcon = FiMenu as unknown as React.FC
   const XIcon = FiX as unknown as React.FC
- 
 
- 
+
+
 
   return (
     <header className="sm:pt-0 pt-0 w-full bg-background-main">
@@ -36,18 +36,15 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
 
-
         <button className="lg:hidden text-[30px] font-bold text-gray-600" onClick={() => setMenuOpen(true)}>
           <MenuIcon />
         </button>
-
-
         <div
           className={`fixed top-0 left-0 h-full w-2/3 bg-white shadow-md z-50 transform ${menuOpen ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out`}
         >
           <button className="absolute top-5 right-5 text-[30px] text-gray-600" onClick={closeMenu}>
-           <XIcon />
+            <XIcon />
           </button>
           {/* MobileNav */}
 
@@ -69,7 +66,7 @@ const Navbar: React.FC = () => {
 
           <Button
             className="flex lg:hidden bg-background-sub text-white mt-10 ml-5"
-            
+
             size="normal"
           >Get started</Button>
         </div>

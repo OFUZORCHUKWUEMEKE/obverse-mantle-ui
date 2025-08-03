@@ -69,7 +69,7 @@ const Hero = () => {
                     </Link>
                 </motion.div>
 
-                
+
                 <div className="w-full mx-auto md:flex hidden iPadAir:justify-between max-iPadAir:gap-52 flex-1 items-center px-10 max-xl:px-0 mb-32 max-iPadAir:mt-16">
                     <div className="flex flex-col space-y-24">
                         <img src={lImg} alt="left-coin" className="w-[269px] h-[182px]" />
@@ -93,7 +93,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-          
+
                 <motion.img
                     variants={handMotion}
                     initial="hidden"

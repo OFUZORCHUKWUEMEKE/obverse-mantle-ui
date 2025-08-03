@@ -32,7 +32,8 @@ const BuiltFor = () => {
     const dataElement = data.map((dataItem) => (
         <div
             key={dataItem.id}
-            className="flex flex-col relative w-full max-w-[350px] max-md:max-w-[550px] md:max-w-[550px] lg:max-w-[450px] max-lg:justify-center"
+            className="flex flex-col relative w-full max-w-[350px] max-md:max-w-[550px] md:max-w-[550px] lg:max-w-[450px] max-lg:justify-center cursor-pointer"
+            onClick={() => handleAddSelection(dataItem.id)}
         >
             <h3
                 className={`${selection === dataItem.id
@@ -47,7 +48,7 @@ const BuiltFor = () => {
             <img
                 src={arrowDown}
                 alt="Toggle Arrow"
-                onClick={() => handleAddSelection(dataItem.id)}
+                
                 className={`absolute right-[25px] top-[28px] cursor-pointer transform transition-transform duration-300 ${selection === dataItem.id ? "rotate-180" : "rotate-0"
                     }`}
             />
