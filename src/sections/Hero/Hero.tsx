@@ -60,13 +60,13 @@ const Hero = () => {
                         payments with a simple message. No friction. No fees. No crypto confusion.
                     </motion.p>
 
-                    <Link to="/" className="sm:mt-10 xl:mb-10 mt-5">
+                    <a href="https://t.me/ObverseBot" target="_blank" rel="noopener noreferrer" className="sm:mt-10 xl:mb-10 mt-5">
                         <motion.div custom={0.6} variants={fadeIn}>
                             <Button variant="normal" size="normal">
                                 Get started
                             </Button>
                         </motion.div>
-                    </Link>
+                    </a>
                 </motion.div>
 
 
