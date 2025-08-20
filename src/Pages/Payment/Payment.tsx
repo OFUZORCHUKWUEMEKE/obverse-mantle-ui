@@ -22,6 +22,7 @@ const Payment = () => {
     const { id } = useParams();
 
     useEffect(() => {
+
         const fetchPaymentLink = async () => {
             try {
                 const baseURL = process.env.REACT_APP_API_URL || 
