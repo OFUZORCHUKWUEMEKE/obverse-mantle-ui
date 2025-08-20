@@ -9,25 +9,23 @@ import Payment from "./Pages/Payment/Payment";
 
 const AppRoutes = () => {
   const location = useLocation();
-  const hideNavbar = ["/wallet", "/payment"];
-  const shouldHide = hideNavbar.includes(location.pathname);
+  const hideNavbar = ["/wallet", "/pay"];
+  const shouldHide = hideNavbar.some(path => location.pathname.startsWith(path));
 
   return (
     <main className="max-container">
-      
-      {!shouldHide && <Navbar />}
 
+      {!shouldHide && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="wallet" element={<Wallet />} />
-        <Route path="payment" element={<Payment />} />
+        <Route path="pay/:id" element={<Payment />} />
         <Route path="*" element={<Error />} />
       </Routes>
-
       {/* Footer */}
       {!shouldHide && <Footer />}
-      
+
     </main>
   );
 };
