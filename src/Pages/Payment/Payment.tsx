@@ -6,6 +6,7 @@ import { Button } from "../../Components/Button/Button";
 import { Skeleton } from "../../Components/Skeleton/Skeleton";
 import { GoSun } from "react-icons/go";
 import { IoMoonOutline } from "react-icons/io5";
+import { useConnectOrCreateWallet, usePrivy } from '@privy-io/react-auth';
 import axios from "axios";
 
 interface PaymentData {
@@ -19,14 +20,21 @@ const Payment = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [isConnecting, setIsConnecting] = useState(false);
+    const { connectOrCreateWallet } = useConnectOrCreateWallet();
+    const { ready, authenticated, user } = usePrivy();
     const { id } = useParams();
+
+    useEffect(() => {
+        console.log('Privy state:', { ready, authenticated, user });
+    }, [ready, authenticated, user]);
 
     useEffect(() => {
 
         const fetchPaymentLink = async () => {
             try {
-                const baseURL = process.env.REACT_APP_API_URL || 
-                              (window.location.hostname === 'localhost' ? 'http://localhost:4000' : 'http://localhost:4000');
+                const baseURL = process.env.REACT_APP_API_URL ||
+                    (window.location.hostname === 'localhost' ? 'http://localhost:4000' : 'http://localhost:4000');
                 const response = await axios.get(`${baseURL}/payment-link/${id}`);
                 console.log(response.data);
                 setPaymentData(response.data);
@@ -48,6 +56,30 @@ const Payment = () => {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
+        }
+    };
+
+    const handleProceedToPay = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        console.log('Button clicked!', { ready, authenticated, user });
+        
+        if (!ready) {
+            console.log('Privy not ready yet');
+            return;
+        }
+
+        setIsConnecting(true);
+        try {
+            if (!authenticated) {
+                console.log('User not authenticated, connecting wallet...');
+                connectOrCreateWallet();
+            } else {
+                console.log('User is authenticated, proceeding with payment...', user);
+            }
+        } catch (error) {
+            console.error('Error connecting wallet:', error);
+        } finally {
+            setIsConnecting(false);
         }
     };
 
@@ -102,7 +134,6 @@ const Payment = () => {
                 </div>
             </header>
             <div className="bg-white sm:mt-40 mt-16 dark:bg-[#0e121b] border border-[#E1E4EA] dark:border-[#2B303B] rounded-xl shadow-xl w-full max-w-[450px] p-6">
-
                 {isLoading ? (
                     <>
                         {/* Header skeleton */}
@@ -146,7 +177,7 @@ const Payment = () => {
                                     <h2 className="text-[24px] text-[#0e121b] dark:text-white font-figtree font-semibold tracking-text">
                                         {paymentData?.title || "Payment"}
                                     </h2>
-                                    <p className="text-[16px] text-[#525866] dark:text-[#99A0AE] tracking-text">Fill in this few details to pay {id}</p>
+                                    <p className="text-[16px] text-[#525866] dark:text-[#99A0AE] tracking-text">Fill in this few details to pay</p>
                                 </div>
                             </div>
                             <div className="text-right">
@@ -161,11 +192,27 @@ const Payment = () => {
 
                         <form className="space-y-4">
                             {renderDynamicFields()}
+
+                            {authenticated && user && (
+                                <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                                    <p className="text-sm text-green-700 dark:text-green-300">
+                                        ✅ Wallet connected: {user.wallet?.address?.slice(0, 6)}...{user.wallet?.address?.slice(-4)}
+                                    </p>
+                                </div>
+                            )}
+
                             <button
-                                type="submit"
-                                className="w-full bg-[#E7562E] hover:bg-[#E0793E] text-white font-semibold py-3 rounded-[10px]"
+                                type="button"
+                                onClick={(e) => {
+                                    console.log('Raw button click detected!');
+                                    handleProceedToPay(e);
+                                }}
+                                disabled={isConnecting}
+                                className="w-full bg-[#E7562E] hover:bg-[#E0793E] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-[10px] transition-colors"
                             >
-                                Proceed to pay
+                                {isConnecting ? 'Connecting...' :
+                                    authenticated ? 'Proceed to pay' :
+                                        'Connect Wallet to Pay'}
                             </button>
                         </form>
                     </>
