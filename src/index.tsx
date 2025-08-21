@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PrivyProvider } from '@privy-io/react-auth';
+import { mantleSepoliaTestnet } from "viem/chains";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,10 +17,22 @@ root.render(
       config={{
         // Create embedded wallets for users who don't have a wallet
         embeddedWallets: {
-          ethereum: {
-            createOnLogin: 'users-without-wallets'
-          }
-        }
+          createOnLogin: "users-without-wallets",
+          showWalletUIs: true,
+          priceDisplay: {
+            primary: "fiat-currency",
+            secondary: "native-token",
+          },
+        },
+
+        appearance: {
+          showWalletLoginFirst: false,
+          accentColor: "#E85e38",
+        },
+
+        loginMethods: ["wallet", "email", "google", "twitter"],
+        defaultChain: mantleSepoliaTestnet,
+        supportedChains: [mantleSepoliaTestnet]
       }}
     >
       <App />

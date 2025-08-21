@@ -1,7 +1,5 @@
-import colors from "tailwindcss/colors";
-
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 
   darkMode: "class", 
@@ -27,12 +25,12 @@ export default {
       },
       colors: {
         secondary: {
-          DEFAULT: colors.neutral[200],
-          hover: colors.neutral[300],
-          border: colors.neutral[400],
-          text: colors.neutral[500],
-          dark: colors.neutral[800],
-          darkHover: colors.neutral[900],
+          DEFAULT: "#e5e5e5",
+          hover: "#d4d4d4",
+          border: "#a3a3a3",
+          text: "#737373",
+          dark: "#262626",
+          darkHover: "#171717",
         },
         background: {
           main: "#FFEDE8",

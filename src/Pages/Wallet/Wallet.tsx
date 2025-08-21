@@ -5,7 +5,7 @@ import { logo, logoText, walletIcon, walletIconDark } from "../../assets/icons";
 import { GoSun } from "react-icons/go";
 import { IoMoonOutline } from "react-icons/io5";
 import { Button } from "../../Components/Button/Button";
-import { RiWalletLine } from "react-icons/ri";
+// import { RiWalletLine } from "react-icons/ri";
 import { FaSearch, FaTimes } from "react-icons/fa";
 
 const Wallet = () => {
