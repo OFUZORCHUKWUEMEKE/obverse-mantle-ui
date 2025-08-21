@@ -24,12 +24,10 @@ root.render(
             secondary: "native-token",
           },
         },
-
         appearance: {
           showWalletLoginFirst: false,
           accentColor: "#E85e38",
         },
-
         loginMethods: ["wallet", "email", "google", "twitter"],
         defaultChain: mantleSepoliaTestnet,
         supportedChains: [mantleSepoliaTestnet]

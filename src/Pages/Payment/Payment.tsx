@@ -43,8 +43,8 @@ const Payment = () => {
         const baseURL =
           process.env.REACT_APP_API_URL ||
           (window.location.hostname === "localhost"
-            ? "http://localhost:4000"
-            : "http://localhost:4000");
+            ? "https://obverse-server.onrender.com"
+            : "https://obverse-server.onrender.com");
         const response = await axios.get(`${baseURL}/payment-link/${id}`);
         console.log(response.data);
         setPaymentData(response.data);
@@ -101,10 +101,10 @@ const Payment = () => {
         fieldName === "email"
           ? "email"
           : fieldName === "phone"
-          ? "tel"
-          : fieldName === "age"
-          ? "number"
-          : "text";
+            ? "tel"
+            : fieldName === "age"
+              ? "number"
+              : "text";
 
       return (
         <div key={fieldName}>
@@ -246,8 +246,8 @@ const Payment = () => {
                 {isConnecting
                   ? "Connecting..."
                   : authenticated
-                  ? "Proceed to pay"
-                  : "Connect Wallet to Pay"}
+                    ? "Proceed to pay"
+                    : "Connect Wallet to Pay"}
               </button>
             </form>
           </>
