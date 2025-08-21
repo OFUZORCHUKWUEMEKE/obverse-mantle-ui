@@ -16,7 +16,12 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': 'http://localhost:4000'
+      '/api': 'http://localhost:4000',
+      '/payment-link': {
+        target: 'https://obverse-server.onrender.com',
+        changeOrigin: true,
+        secure: true
+      }
     }
   },
   build: {

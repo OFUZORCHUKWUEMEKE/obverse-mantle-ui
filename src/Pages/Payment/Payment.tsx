@@ -40,8 +40,7 @@ const Payment = () => {
   useEffect(() => {
     const fetchPaymentLink = async () => {
       try {
-        const baseURL = "https://obverse-server.onrender.com";
-        const response = await axios.get(`${baseURL}/payment-link/${id}`);
+        const response = await axios.get(`/payment-link/${id}`);
         console.log(response.data);
         setPaymentData(response.data);
       } catch (error) {
