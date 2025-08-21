@@ -36,15 +36,11 @@ const Payment = () => {
   useEffect(() => {
     console.log("Privy state:", { ready, authenticated, user });
   }, [ready, authenticated, user]);
-
+// https://obverse-server.onrender.com"
   useEffect(() => {
     const fetchPaymentLink = async () => {
       try {
-        const baseURL =
-          process.env.REACT_APP_API_URL ||
-          (window.location.hostname === "localhost"
-            ? "https://obverse-server.onrender.com"
-            : "https://obverse-server.onrender.com");
+        const baseURL = "https://obverse-server.onrender.com";
         const response = await axios.get(`${baseURL}/payment-link/${id}`);
         console.log(response.data);
         setPaymentData(response.data);
