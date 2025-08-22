@@ -43,7 +43,7 @@ const Payment = () => {
     console.log("Fetching payment link for ID:", id);
     const fetchPaymentLink = async () => {
       try {
-        const response = await axios.get(`/payment-link/${id}`);
+        const response = await axios.get(`https://obverse-server.onrender.com/payment-link/${id}`);
         console.log(response.data);
         setPaymentData(response.data);
       } catch (error) {
