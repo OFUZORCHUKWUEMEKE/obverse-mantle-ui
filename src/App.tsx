@@ -6,15 +6,18 @@ import Error from "./Pages/Error/Error";
 import Footer from "./Components/Footer/Footer";
 import Wallet from "./Pages/Wallet/Wallet";
 import Payment from "./Pages/Payment/Payment";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppRoutes = () => {
   const location = useLocation();
   const hideNavbar = ["/wallet", "/pay"];
-  const shouldHide = hideNavbar.some(path => location.pathname.startsWith(path));
+  const shouldHide = hideNavbar.some((path) =>
+    location.pathname.startsWith(path)
+  );
 
   return (
     <main className="max-container">
-
       {!shouldHide && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +28,6 @@ const AppRoutes = () => {
       </Routes>
       {/* Footer */}
       {!shouldHide && <Footer />}
-
     </main>
   );
 };
@@ -33,6 +35,18 @@ const AppRoutes = () => {
 const App = () => (
   <BrowserRouter>
     <AppRoutes />
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
   </BrowserRouter>
 );
 

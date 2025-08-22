@@ -4,7 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PrivyProvider } from '@privy-io/react-auth';
+import { WagmiProvider } from '@privy-io/wagmi';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { mantleSepoliaTestnet } from "viem/chains";
+import { wagmiConfig } from './wagmiConfig';
+// import { addRpcUrlOverrideToChain } from '@privy-io/react-auth';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,12 +34,16 @@ root.render(
           showWalletLoginFirst: false,
           accentColor: "#E85e38",
         },
-        loginMethods: ["wallet", "email", "google", "twitter"],
+        loginMethods: ["wallet"],
         defaultChain: mantleSepoliaTestnet,
         supportedChains: [mantleSepoliaTestnet]
       }}
     >
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <WagmiProvider config={wagmiConfig}>
+          <App />
+        </WagmiProvider>
+      </QueryClientProvider>
     </PrivyProvider>
   </React.StrictMode>
 );

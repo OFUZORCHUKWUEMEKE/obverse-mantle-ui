@@ -6,6 +6,7 @@ import { Skeleton } from "../../Components/Skeleton/Skeleton";
 import { GoSun } from "react-icons/go";
 import { IoMoonOutline } from "react-icons/io5";
 import { useConnectOrCreateWallet, usePrivy } from "@privy-io/react-auth";
+import { useAccount } from "wagmi";
 import {
   Navbar,
   NavBody,
@@ -16,24 +17,42 @@ import {
 import axios from "axios";
 import { logo } from "../../assets/icons";
 import WalletConnect from "../Wallet/WalletConnect";
+import { useERC20Transfer } from "../../hooks";
+import { type Address } from "viem";
+import { toast } from "react-toastify";
 
 interface PaymentData {
   title?: string;
   amount?: string;
   token?: string;
+  tokenAddress?: string;
+  address?: string;
+  decimals?: number;
   payerDetails?: Record<string, any>;
-
 }
 
-// console.log()
 const Payment = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [formData, setFormData] = useState<Record<string, string>>({});
   const { connectOrCreateWallet } = useConnectOrCreateWallet();
-  const { ready, authenticated, user } = usePrivy();
+  const { ready, authenticated, user, } = usePrivy();
+  const { address } = useAccount();
+
+  const userAddress = user?.wallet?.address || address;
   const { id } = useParams();
+
+  const {
+    transferToken,
+    isLoading: isTransferring,
+    isSuccess: transferSuccess,
+    isError: transferError,
+    error: transferErrorMessage,
+    transactionHash,
+    reset: resetTransfer,
+  } = useERC20Transfer();
 
   // useEffect(() => {
   //   console.log("Privy state:", { ready, authenticated, user });
@@ -43,7 +62,9 @@ const Payment = () => {
     console.log("Fetching payment link for ID:", id);
     const fetchPaymentLink = async () => {
       try {
-        const response = await axios.get(`https://obverse-server.onrender.com/payment-link/${id}`);
+        const response = await axios.get(
+          `https://obverse-server.onrender.com/payment-link/${id}`
+        );
         console.log(response.data);
         setPaymentData(response.data);
       } catch (error) {
@@ -83,12 +104,86 @@ const Payment = () => {
         connectOrCreateWallet();
       } else {
         console.log("User is authenticated, proceeding with payment...", user);
+        await handlePayment();
       }
     } catch (error) {
       console.error("Error connecting wallet:", error);
     } finally {
       setIsConnecting(false);
     }
+  };
+
+  const validatePaymentData = (): {
+    isValid: boolean;
+    errorMessage?: string;
+  } => {
+    if (!paymentData || !userAddress) {
+      return {
+        isValid: false,
+        errorMessage: "Missing payment data or wallet not connected",
+      };
+    }
+
+    // Validate required form fields
+    const requiredFields = Object.keys(paymentData.payerDetails || {});
+    const missingFields = requiredFields.filter((field) => !formData[field]);
+
+    if (missingFields.length > 0) {
+      return {
+        isValid: false,
+        errorMessage: `Please fill in all required fields: ${missingFields.join(
+          ", "
+        )}`,
+      };
+    }
+
+    // Validate payment configuration
+    if (
+      !paymentData.tokenAddress ||
+      !paymentData.address ||
+      !paymentData.amount
+    ) {
+      return {
+        isValid: false,
+        errorMessage:
+          "Missing payment configuration. Please contact the merchant.",
+      };
+    }
+
+    return { isValid: true };
+  };
+
+  const handlePayment = async () => {
+    const validation = validatePaymentData();
+
+    if (!validation.isValid) {
+      console.error("Payment validation failed:", validation.errorMessage);
+      toast.error(validation.errorMessage, { position: "top-right" });
+      return;
+    }
+
+    try {
+      await transferToken({
+        tokenAddress: "0x827C54Bd992e7E60f9FAd50675ca9990aDf50001" as Address, // Use token address from payment data
+        toAddress: paymentData!.address as Address,
+        amount: paymentData!.amount!,
+        decimals: paymentData!.decimals || 6,
+      });
+      // handle sucess endpoint call here
+      console.log('Transaction successful');
+      toast.success('Transaction completed successfully!', { position: "top-right" });
+    } catch (error) {
+      // handle failure endpoint call here
+      console.error("Payment failed:", error);
+      toast.error('Transaction failed. Please try again.', { position: "top-right" });
+    }
+  };
+
+  const handleInputChange = (fieldName: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [fieldName]: value,
+    }));
   };
 
   const renderDynamicFields = () => {
@@ -99,10 +194,10 @@ const Payment = () => {
         fieldName === "email"
           ? "email"
           : fieldName === "phone"
-            ? "tel"
-            : fieldName === "age"
-              ? "number"
-              : "text";
+          ? "tel"
+          : fieldName === "age"
+          ? "number"
+          : "text";
 
       return (
         <div key={fieldName}>
@@ -112,7 +207,10 @@ const Payment = () => {
           <input
             type={fieldType}
             placeholder={`Enter ${fieldName}`}
+            value={formData[fieldName] || ""}
+            onChange={(e) => handleInputChange(fieldName, e.target.value)}
             className="placeholder:font-figtree w-full px-4 py-2 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-white text-[#99A0AE] focus:outline-none focus:shadow-md rounded-[10px]"
+            required
           />
         </div>
       );
@@ -203,7 +301,7 @@ const Payment = () => {
                 <img src={logo} alt="logo" className="max-s20:w-7" />
                 <div>
                   <h2 className="text-[24px] text-[#0e121b] dark:text-white font-figtree font-semibold tracking-text">
-                    {paymentData?.title || "Payment dataaa"}
+                    {paymentData?.title || "Payment"}
                   </h2>
                   <p className="text-[16px] text-[#525866] dark:text-[#99A0AE] tracking-text">
                     Fill in this few details to pay
@@ -223,11 +321,44 @@ const Payment = () => {
             <form className="space-y-4">
               {renderDynamicFields()}
 
-              {authenticated && user && (
+              {transferError && transferErrorMessage && (
+                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                  <p className="text-sm text-red-700 dark:text-red-300">
+                    ❌ Payment failed: {transferErrorMessage.message}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={resetTransfer}
+                    className="mt-2 text-xs text-red-600 dark:text-red-400 hover:underline"
+                  >
+                    Try again
+                  </button>
+                </div>
+              )}
+
+              {transferSuccess && transactionHash && (
                 <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                   <p className="text-sm text-green-700 dark:text-green-300">
-                    ✅ Wallet connected: {user.wallet?.address?.slice(0, 6)}...
-                    {user.wallet?.address?.slice(-4)}
+                    ✅ Payment successful!
+                  </p>
+                  <p className="text-xs text-green-600 dark:text-green-400 mt-1 break-all">
+                    Transaction: {transactionHash}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={resetTransfer}
+                    className="mt-2 text-xs text-green-600 dark:text-green-400 hover:underline"
+                  >
+                    Make another payment
+                  </button>
+                </div>
+              )}
+
+              {isTransferring && (
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                  <p className="text-sm text-blue-700 dark:text-blue-300">
+                    🔄 Processing payment... Please wait and do not close this
+                    page.
                   </p>
                 </div>
               )}
@@ -238,14 +369,18 @@ const Payment = () => {
                   console.log("Raw button click detected!");
                   handleProceedToPay(e);
                 }}
-                disabled={isConnecting}
+                disabled={isConnecting || isTransferring || transferSuccess}
                 className="w-full bg-[#E7562E] hover:bg-[#E0793E] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-[10px] transition-colors"
               >
-                {isConnecting
+                {isTransferring
+                  ? "Processing Payment..."
+                  : isConnecting
                   ? "Connecting..."
+                  : transferSuccess
+                  ? "Payment Completed ✅"
                   : authenticated
-                    ? "Proceed to pay"
-                    : "Connect Wallet to Pay"}
+                  ? "Proceed to Pay"
+                  : "Connect Wallet to Pay"}
               </button>
             </form>
           </>
