@@ -103,7 +103,7 @@ const Payment = () => {
         console.log("User not authenticated, connecting wallet...");
         connectOrCreateWallet();
       } else {
-        console.log("User is authenticated, proceeding with payment...", user);
+        console.log("User is authenticated, proceeding with payment...", user?.wallet?.address);
         await handlePayment();
       }
     } catch (error) {
@@ -164,17 +164,18 @@ const Payment = () => {
 
     try {
       await transferToken({
-        tokenAddress: "0x827C54Bd992e7E60f9FAd50675ca9990aDf50001" as Address, // Use token address from payment data
+        tokenAddress: "0x827C54Bd992e7E60f9FAd50675ca9990aDf50001" as Address, // Using MockUSDC token address for now
         toAddress: paymentData!.address as Address,
         amount: paymentData!.amount!,
         decimals: paymentData!.decimals || 6,
       });
-      // handle sucess endpoint call here
-      console.log('Transaction successful');
-      toast.success('Transaction completed successfully!', { position: "top-right" });
+      if (transferSuccess) {
+        // handle success endpoint call here
+        toast.success('Transaction completed successfully!', { position: "top-right" });
+      }
     } catch (error) {
       // handle failure endpoint call here
-      console.error("Payment failed:", error);
+      console.log("Payment failed:", error);
       toast.error('Transaction failed. Please try again.', { position: "top-right" });
     }
   };
@@ -194,10 +195,10 @@ const Payment = () => {
         fieldName === "email"
           ? "email"
           : fieldName === "phone"
-            ? "tel"
-            : fieldName === "age"
-              ? "number"
-              : "text";
+          ? "tel"
+          : fieldName === "age"
+          ? "number"
+          : "text";
 
       return (
         <div key={fieldName}>
@@ -322,9 +323,9 @@ const Payment = () => {
               {renderDynamicFields()}
 
               {transferError && transferErrorMessage && (
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                <div className="overflow-x-scroll p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                   <p className="text-sm text-red-700 dark:text-red-300">
-                    ❌ Payment failed: {transferErrorMessage.message}
+                    ❌ Payment failed: {transferErrorMessage.message.slice(0, 300)}
                   </p>
                   <button
                     type="button"
@@ -375,12 +376,12 @@ const Payment = () => {
                 {isTransferring
                   ? "Processing Payment..."
                   : isConnecting
-                    ? "Connecting..."
-                    : transferSuccess
-                      ? "Payment Completed ✅"
-                      : authenticated
-                        ? "Proceed to Pay"
-                        : "Connect Wallet to Pay"}
+                  ? "Connecting..."
+                  : transferSuccess
+                  ? "Payment Completed ✅"
+                  : authenticated
+                  ? "Proceed to Pay"
+                  : "Connect Wallet to Pay"}
               </button>
             </form>
           </>
