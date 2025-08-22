@@ -5,7 +5,7 @@
 
 Obverse is a stablecoin AI agent that helps merchants collect payments with links and QR codes, all directly from Telegram. It provides a seamless payment solution for businesses looking to accept cryptocurrency payments with ease.
 
-![Screenshot](images/OBVERSE%20.jpg)
+
 
 ## Features
 
@@ -26,6 +26,8 @@ Obverse is a stablecoin AI agent that helps merchants collect payments with link
 - **State Management**: TanStack Query
 - **Animation**: Framer Motion
 - **Testing**: Vitest
+
+![Screenshot](images/OBVERSE%20.jpg)
 
 ## Getting Started
 
