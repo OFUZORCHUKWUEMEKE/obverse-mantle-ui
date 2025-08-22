@@ -35,11 +35,12 @@ const Payment = () => {
   const { ready, authenticated, user } = usePrivy();
   const { id } = useParams();
 
-  useEffect(() => {
-    console.log("Privy state:", { ready, authenticated, user });
-  }, [ready, authenticated, user]);
+  // useEffect(() => {
+  //   console.log("Privy state:", { ready, authenticated, user });
+  // }, [ready, authenticated, user]);
   // https://obverse-server.onrender.com"
   useEffect(() => {
+    console.log("Fetching payment link for ID:", id);
     const fetchPaymentLink = async () => {
       try {
         const response = await axios.get(`/payment-link/${id}`);
