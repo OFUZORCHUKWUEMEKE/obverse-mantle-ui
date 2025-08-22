@@ -54,77 +54,10 @@ const Payment = () => {
     reset: resetTransfer,
   } = useERC20Transfer();
 
-  enum WalletStatus {
-    ACTIVE = 'active',
-    SUSPENDED = 'suspended',
-    CLOSED = 'closed',
-  }
-
-  enum BlockchainNetwork {
-    ETHEREUM = 'ethereum',
-    POLYGON = 'polygon',
-    BSC = 'bsc',
-    ARBITRUM = 'arbitrum',
-    OPTIMISM = 'optimism',
-    MANTLE = 'mantle',
-  }
-
-  enum TransactionType {
-    SEND = 'send',
-    RECEIVE = 'receive',
-    PAYMENT_LINK = 'payment_link',
-    SWAP = 'swap',
-    STAKE = 'stake',
-    UNSTAKE = 'unstake',
-  }
-
-  interface CreateTransactionRequest {
-    payerWalletId: string;
-    payerUserId: string;
-    payerAddress: string;
-    transactionHash?: string;
-    status: 'pending' | 'confirmed' | 'failed' | 'cancelled' | 'expired';
-    blockNumber?: number;
-    blockHash?: string;
-    confirmations?: number;
-    gasFee?: string;
-    gasPrice?: string;
-    gasUsed?: string;
-    errorCode?: string;
-    errorMessage?: string;
-    memo?: string;
-    metadata?: any;
-    payerDetails?: any;
-  }
-
-  interface ICreateTransaction {
-    walletId: string;
-    userId: string;
-    type: TransactionType;
-    amount: string;
-    token: string;
-    tokenAddress: string;
-    network: BlockchainNetwork;
-    fromAddress: string;
-    toAddress: string;
-    hash?: string;
-    gasFee?: string;
-    gasPrice?: string;
-    gasUsed?: string;
-    paymentLinkId?: string;
-    telegramChatId?: string;
-    memo?: string;
-    isInternal?: boolean;
-    metadata?: {
-      userAgent?: string;
-      ipAddress?: string;
-      deviceInfo?: string;
-      initiatedBy?: 'user' | 'agent' | 'system';
-      [key: string]: any;
-    };
-    payerDetails?: { [key: string]: any };
-  }
-
+  // useEffect(() => {
+  //   console.log("Privy state:", { ready, authenticated, user });
+  // }, [ready, authenticated, user]);
+  // https://obverse-server.onrender.com"
   useEffect(() => {
     console.log("Fetching payment link for ID:", id);
     const fetchPaymentLink = async () => {
@@ -152,52 +85,6 @@ const Payment = () => {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
-    }
-  };
-
-
-  const createTransaction = async (paymentData: any): Promise<void> => {
-    if (!paymentData || !user?.wallet?.walletClientType || !userAddress) {
-      throw new Error("Missing required data for transaction creation");
-    }
-
-    const transactionPayload: ICreateTransaction = {
-      walletId: paymentData.walletId,
-      userId: paymentData.creatorUserId,
-      type: TransactionType.PAYMENT_LINK,
-      amount: paymentData.amount,
-      token: paymentData.token,
-      tokenAddress: paymentData.tokenAddress,
-      network: paymentData.network as BlockchainNetwork,
-      fromAddress: userAddress,
-      toAddress: paymentData.address,
-      paymentLinkId: paymentData._id,
-      telegramChatId: paymentData.telegramChatId,
-      isInternal: false,
-      metadata: {
-        initiatedBy: 'user',
-        source: paymentData.metadata?.source,
-        userAgent: navigator.userAgent,
-        deviceInfo: navigator.platform,
-        ...paymentData.metadata
-      },
-      payerDetails: {
-        ...paymentData.payerDetails,
-        ...formData
-      }
-    };
-
-    try {
-      const response = await axios.post(
-        'https://obverse-server.onrender.com/transaction',
-        transactionPayload
-      );
-      
-      console.log('Transaction created successfully:', response.data);
-      return response.data;
-    } catch (error) {
-      console.error('Error creating transaction:', error);
-      throw error;
     }
   };
 
@@ -276,9 +163,6 @@ const Payment = () => {
     }
 
     try {
-      // Create transaction record before initiating the blockchain transfer
-      // await createTransaction(paymentData);
-      
       await transferToken({
         tokenAddress: "0x827C54Bd992e7E60f9FAd50675ca9990aDf50001" as Address, // Using MockUSDC token address for now
         toAddress: paymentData!.address as Address,
@@ -286,9 +170,11 @@ const Payment = () => {
         decimals: paymentData!.decimals || 6,
       });
       if (transferSuccess) {
+        // handle success endpoint call here
         toast.success('Transaction completed successfully!', { position: "top-right" });
       }
     } catch (error) {
+      // handle failure endpoint call here
       console.log("Payment failed:", error);
       toast.error('Transaction failed. Please try again.', { position: "top-right" });
     }
@@ -309,10 +195,10 @@ const Payment = () => {
         fieldName === "email"
           ? "email"
           : fieldName === "phone"
-            ? "tel"
-            : fieldName === "age"
-              ? "number"
-              : "text";
+          ? "tel"
+          : fieldName === "age"
+          ? "number"
+          : "text";
 
       return (
         <div key={fieldName}>
@@ -457,7 +343,7 @@ const Payment = () => {
                     ✅ Payment successful!
                   </p>
                   <p className="text-xs text-green-600 dark:text-green-400 mt-1 break-all">
-                    Transaction: {transactionHash}
+                    Transaction: <a href={`https://sepolia.mantlescan.xyz/tx/${transactionHash}`} target="_blank" rel="noopener noreferrer" className="text-green-600 dark:text-green-400 hover:underline">https://sepolia.mantlescan.xyz/tx/{transactionHash}</a>
                   </p>
                   <button
                     type="button"
@@ -490,12 +376,12 @@ const Payment = () => {
                 {isTransferring
                   ? "Processing Payment..."
                   : isConnecting
-                    ? "Connecting..."
-                    : transferSuccess
-                      ? "Payment Completed ✅"
-                      : authenticated
-                        ? "Proceed to Pay"
-                        : "Connect Wallet to Pay"}
+                  ? "Connecting..."
+                  : transferSuccess
+                  ? "Payment Completed ✅"
+                  : authenticated
+                  ? "Proceed to Pay"
+                  : "Connect Wallet to Pay"}
               </button>
             </form>
           </>
