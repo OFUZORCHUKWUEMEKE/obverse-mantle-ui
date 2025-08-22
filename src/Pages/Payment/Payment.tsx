@@ -194,10 +194,10 @@ const Payment = () => {
         fieldName === "email"
           ? "email"
           : fieldName === "phone"
-          ? "tel"
-          : fieldName === "age"
-          ? "number"
-          : "text";
+            ? "tel"
+            : fieldName === "age"
+              ? "number"
+              : "text";
 
       return (
         <div key={fieldName}>
@@ -375,12 +375,12 @@ const Payment = () => {
                 {isTransferring
                   ? "Processing Payment..."
                   : isConnecting
-                  ? "Connecting..."
-                  : transferSuccess
-                  ? "Payment Completed ✅"
-                  : authenticated
-                  ? "Proceed to Pay"
-                  : "Connect Wallet to Pay"}
+                    ? "Connecting..."
+                    : transferSuccess
+                      ? "Payment Completed ✅"
+                      : authenticated
+                        ? "Proceed to Pay"
+                        : "Connect Wallet to Pay"}
               </button>
             </form>
           </>

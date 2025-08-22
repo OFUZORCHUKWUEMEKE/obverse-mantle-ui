@@ -7,8 +7,8 @@ import { usePrivy } from '@privy-io/react-auth';
 export interface UseERC20TransferParams {
   tokenAddress: Address;
   toAddress: Address;
-  amount: string; 
-  decimals?: number; 
+  amount: string;
+  decimals?: number;
 }
 
 export interface UseERC20TransferReturn {
