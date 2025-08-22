@@ -22,8 +22,10 @@ interface PaymentData {
   amount?: string;
   token?: string;
   payerDetails?: Record<string, any>;
+
 }
 
+// console.log()
 const Payment = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
@@ -36,7 +38,7 @@ const Payment = () => {
   useEffect(() => {
     console.log("Privy state:", { ready, authenticated, user });
   }, [ready, authenticated, user]);
-// https://obverse-server.onrender.com"
+  // https://obverse-server.onrender.com"
   useEffect(() => {
     const fetchPaymentLink = async () => {
       try {
