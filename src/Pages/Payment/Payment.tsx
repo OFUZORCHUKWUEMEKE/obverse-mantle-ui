@@ -59,7 +59,7 @@ const Payment = () => {
   // }, [ready, authenticated, user]);
   // https://obverse-server.onrender.com"
   useEffect(() => {
-    console.log("Fetching payment link for ID:", id);
+    console.log("updated successfully");
     const fetchPaymentLink = async () => {
       try {
         const response = await axios.get(
