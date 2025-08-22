@@ -202,7 +202,7 @@ const Payment = () => {
                 <img src={logo} alt="logo" className="max-s20:w-7" />
                 <div>
                   <h2 className="text-[24px] text-[#0e121b] dark:text-white font-figtree font-semibold tracking-text">
-                    {paymentData?.title || "Payment"}
+                    {paymentData?.title || "Payment dataaa"}
                   </h2>
                   <p className="text-[16px] text-[#525866] dark:text-[#99A0AE] tracking-text">
                     Fill in this few details to pay
