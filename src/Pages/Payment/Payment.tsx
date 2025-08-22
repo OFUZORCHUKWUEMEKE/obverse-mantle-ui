@@ -259,7 +259,7 @@ const Payment = () => {
           </MobileNavHeader>
         </MobileNav>
       </Navbar>
-      <div className="bg-white sm:mt-40 mt-16 dark:bg-[#0e121b] border border-[#E1E4EA] dark:border-[#2B303B] rounded-xl shadow-xl w-full max-w-[450px] p-6">
+      <div className="bg-white mt-40 dark:bg-[#0e121b] border border-[#E1E4EA] dark:border-[#2B303B] rounded-xl shadow-xl w-full max-w-[450px] p-6">
         {isLoading ? (
           <>
             {/* Header skeleton */}

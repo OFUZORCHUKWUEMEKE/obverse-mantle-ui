@@ -53,7 +53,7 @@ function WalletConnect() {
               <button
                 disabled={isLoading}
                 onClick={handleLogin}
-                className={`w-full lg:w-fit rounded-xl px-4 py-2 bg-white text-[#E85e38] border border-[#E85e38] hover:bg-[#E85e38] hover:text-white ${isLoading ? "cursor-not-allowed opacity-50" : ""
+                className={`w-full lg:w-fit rounded-xl px-2 sm:px-4 py-2 bg-white text-xs sm:text-base text-[#E85e38] border border-[#E85e38] hover:bg-[#E85e38] hover:text-white ${isLoading ? "cursor-not-allowed opacity-50" : ""
                   }`}
               >
                 {isLoading ? "Connecting..." : "Connect Wallet"}
